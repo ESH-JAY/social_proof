@@ -1,27 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Update star ratings dynamically based on data-rating attribute
+    // updates star ratings dynamically
     const starRatings = document.querySelectorAll('.star-rating');
 
     starRatings.forEach(function(ratingElement) {
-        const rating = parseInt(ratingElement.getAttribute('data-rating')); // Get rating value from data-rating
+        const rating = parseInt(ratingElement.getAttribute('data-rating')); // get rating value from data-rating
         const stars = ratingElement.querySelectorAll('.star');
 
-        // Highlight the appropriate number of stars based on the rating
+        // highlights the exact number if stars specified
         stars.forEach(function(star, index) {
             if (index < rating) {
-                star.classList.remove('empty');  // Full star
+                star.classList.remove('empty');
             } else {
-                star.classList.add('empty');    // Empty star
+                star.classList.add('empty');
             }
         });
     });
-
-    // Handle "Enroll Now" button click
-    const enrollButtons = document.querySelectorAll('.cta-btn');
-    enrollButtons.forEach(function(button) {
-        button.addEventListener('click', function(event) {
-            event.preventDefault();
-            alert('You have enrolled in the course!');
-        });
     });
-});
